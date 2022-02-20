@@ -1,0 +1,70 @@
+CREATE DATABASE IF NOT EXISTS 'Filmdatenbank'         //DB erstellen
+
+USE DATABASE `Filmdatenbank`                          //DB verwenden
+
+CREATE TABLE IF NOT EXISTS `film` (                   //Tabelle Film erstellen.
+  `ID` int(11) NOT NULL,                              //Spalte ID als Primärschlüssel
+  PRIMARY KEY (`ID`),
+  `Titel` varchar(50) DEFAULT NULL,                   //Spalte Titel - variabler character
+  `Erscheinungsdatum` date DEFAULT NULL,              //Spalte Erscheinungsdatum - datum
+  `Filmstudio_ID` int(11) DEFAULT NULL,               //Spalte Filmstudio_ID als Fremdschlüssel
+  KEY `fs_id` (`Filmstudio_ID`),
+  CONSTRAINT `fs_id` FOREIGN KEY (`Filmstudio_ID`) REFERENCES `filmstudio` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+
+CREATE TABLE IF NOT EXISTS `filmstudio` (             //Tabelle Filmstudio erstellen.
+  `ID` int(11) NOT NULL,                              //Spalte ID als Primärschlüssel
+  PRIMARY KEY (`ID`),
+  `Bezeichnung` varchar(50) DEFAULT NULL,             //Spalte Bezeichnung - variabler character
+  
+  //Tabelle Filmstudio mit Werten befüllen
+INSERT INTO `filmstudio` (`ID`, `Bezeichnung`) VALUES
+	(1, 'Bavaria Filmstudios'),
+	(2, 'Great American Films'),
+	(3, 'Touchstones Pictures'),
+	(4, 'Warner Brothers Pictures');
+
+//Tabelle Film mit Werten befüllen
+INSERT INTO `film` (`ID`, `Titel`, `Erscheinungsdatum`, `Filmstudio_ID`) VALUES
+	(3000, 'Dirty Dancing', '1987-08-21', 2),
+	(3001, 'Sister Act', '1992-05-29', 4),
+	(3002, 'Harry Potter u. der Stein der Weisen', '2001-11-23', 1),
+	(3003, 'Casanova', '2006-02-09', 3);
+
+ CREATE TABLE IF NOT EXISTS `schauspieler` (          //Tabelle Schauspieler erstellen.
+  `ID` int(11) NOT NULL,                              //Spalte ID als Primärschlüssel
+  PRIMARY KEY (`ID`),
+  `Vorname` varchar(50) DEFAULT NULL,                 //Spalte Vorname - variabler character
+  `Nachname` varchar(50) DEFAULT NULL,                //Spalte Nachname - variabler character
+ 
+ //Tabelle Schauspieler befüllen
+INSERT INTO `schauspieler` (`ID`, `Vorname`, `Nachname`) VALUES
+	(1100, 'Holger', 'Fantasy'),
+	(1101, 'Maria', 'Dubrovsky'),
+	(1102, 'Lennard', 'Bexter'),
+	(1103, 'Amy', 'Cooper'),
+	(1104, 'Penelope', 'Spencer'),
+	(1105, 'Larry', 'King'),
+	(1106, 'Helene', 'Barry');
+  
+CREATE TABLE IF NOT EXISTS `hat mitgewirkt` (         //Tabelle hat mitgewirkt als n:m Beziehung zwischen Schauspieler und Film erstellen.
+  `ID` int(11) NOT NULL,                              //Spalte ID als Primärschlüssel
+  PRIMARY KEY (`ID`),
+  `FK_Schauspieler_ID` int(11) DEFAULT NULL,          //Spalte FK_Schauspieler_ID als Fremdschlüssel
+  KEY `FK_Schauspieler` (`FK_Schauspieler_ID`),
+  CONSTRAINT `FK_Schauspieler` FOREIGN KEY (`FK_Schauspieler_ID`) REFERENCES `schauspieler` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `FK_Film_ID` int(11) DEFAULT NULL,                  //Spalte FK_Film_ID als Fremdschlüssel
+  KEY `FK_Film` (`FK_Film_ID`),
+  CONSTRAINT `FK_Film` FOREIGN KEY (`FK_Film_ID`) REFERENCES `film` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+//Tabelle hat mitgewirkt befüllen
+INSERT INTO `hat mitgewirkt` (`ID`, `FK_Film_ID`, `FK_Schauspieler_ID`) VALUES
+	(201, 3003, 1100),
+	(202, 3003, 1106),
+	(203, 3002, 1106),
+	(204, 3002, 1102),
+	(205, 3002, 1100),
+	(206, 3001, 1104),
+	(207, 3001, 1101),
+	(208, 3000, 1105),
+	(209, 3000, 1103),
+	(210, 3000, 1101);
