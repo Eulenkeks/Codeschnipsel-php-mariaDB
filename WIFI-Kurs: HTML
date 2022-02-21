@@ -7,11 +7,11 @@ html testen - https://validator.w3.org/unicorn/?ucn_lang=de
 
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
+<head>
+	<titel>LAP Beispiel</titel>
+</head>
 <body>
-
-<h2>HTML Forms</h2>
-
 <form action="/suchergebnis.php">
   
 	<label for="MitgliedID">Mitglied-ID:</label><br>
