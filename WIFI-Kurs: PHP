@@ -2,6 +2,8 @@
 Ebenso was passiert, wenn man "Hallo" statt der Mitglied Nr. eingibt.
 Außerdem einen Join einbauen, dass der Titel des Buches da steht!!
 
+Überprüfen: 1 OR 1 - es muss gewährleistet sein, dass es eine einzelne Zahl ist und nichts anderes!!
+
 <!-- php ist ein Interpreter - alles davor und danach ignoriert er!-->
 
 <!DOCTYPE html>
