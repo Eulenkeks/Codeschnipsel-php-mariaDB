@@ -74,7 +74,7 @@ Außerdem einen Join einbauen, dass der Titel des Buches da steht!!
 		}
 	}
 	else {
-		echo "0 results";
+		echo "Für das Mitglied xy wurden keine Verleihvorgänge gefunden";
 	}
 
 // Verbindung schließen
