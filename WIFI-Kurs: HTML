@@ -12,10 +12,10 @@ html testen - https://validator.w3.org/unicorn/?ucn_lang=de
 	<titel>LAP Beispiel</titel>
 </head>
 <body>
-<form action="/suchergebnis.php">
+<form action="/suchergebnis.php" method="POST">
   
-	<label for="MitgliedID">Mitglied-ID:</label><br>
-	<input type="text" id="MitgliedID" name="Mitglied-ID" value="1"><br>
+	<label for="MitgliedID">MitgliedID:</label><br>
+	<input type="text" id="MitgliedID" name="MitgliedID" value="1"><br>
   
   <input type="radio" id=Status0" name="Status" value ="0"> <label for="Status0">ALLE</label>
   <input type="radio" id=Status1" name="Status" value ="0"> <label for="Status1">OFFEN</label>
