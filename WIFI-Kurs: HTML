@@ -18,7 +18,7 @@ html testen - https://validator.w3.org/unicorn/?ucn_lang=de
 	<input type="text" id="MitgliedID" name="MitgliedID" value="1"><br>
   
   <input type="radio" id=Status0" name="Status" value ="0"> <label for="Status0">ALLE</label>
-  <input type="radio" id=Status1" name="Status" value ="0"> <label for="Status1">OFFEN</label>
+  <input type="radio" id=Status1" name="Status" value ="1"> <label for="Status1">OFFEN</label>
   
   <input type="submit" value="Suchen">
 </form> 
