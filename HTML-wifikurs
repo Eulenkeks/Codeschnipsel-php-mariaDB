@@ -1,0 +1,23 @@
+DropDown Menü noch hinzufügen und einen Titel
+
+evtl. mit CSS leicht verfeinern - nur um das mal geübt zu haben
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action="/suchergebnis.php">
+  
+	<label for="MitgliedID">Mitglied-ID:</label><br>
+	<input type="text" id="MitgliedID" name="Mitglied-ID" value="1"><br>
+  
+  <input type="radio" id=Status0" name="Status" value ="0"> <label for="Status0">ALLE</label>
+  <input type="radio" id=Status1" name="Status" value ="0"> <label for="Status1">OFFEN</label>
+  
+  <input type="submit" value="Suchen">
+</form> 
+
+</body>
+</html>
