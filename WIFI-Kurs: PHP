@@ -64,14 +64,19 @@ Außerdem einen Join einbauen, dass der Titel des Buches da steht!!
 	// Variable zwischendurch ausgeben: var_dump($result);
 	if ($result->num_rows > 0) {
 		
-// 4. Ergebnis ausgeben
+// 4. Ergebnis ausgeben in Tabellenform
+		
+		echo "<table border=1><tr><td>Verleihdatum</td><td>Rueckgabedatum</td><td>Buch</td></tr>";
 		
 		// als Schleife durchlaufen
 		while($row = $result->fetch_assoc())
 		{
 			// aktueller Datensatz in $row, Feldname als Index
-			echo "VerleihDatum: " . $row["VerleihDatum"]. " - Rückgabe: " . $row["RueckgabeDatum"]. " Buch = " . $row["Buch_idBuch"]. "<br>";
+				//echo "VerleihDatum: " . $row["VerleihDatum"]. " - Rückgabe: " . $row["RueckgabeDatum"]. " Buch = " . $row["Buch_idBuch"]. "<br>";
+				echo "<tr><td> " . $row["VerleihDatum"]. "</td><td>" . $row["RueckgabeDatum"]. "</td><td>" . $row["Buch_idBuch"]. "</td><br>";
 		}
+		
+		echo "</table>";
 	}
 	else {
 		echo "Für das Mitglied xy wurden keine Verleihvorgänge gefunden";
